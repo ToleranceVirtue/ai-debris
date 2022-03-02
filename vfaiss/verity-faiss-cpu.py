@@ -126,7 +126,7 @@ def plot_meas():
 
     for i, d in enumerate(range(100, 1000, 10)):
         idx_tt, tt, mm = measure(d = d, nb = 1000000, nq = 1000, nlist = 100)
-        print(idx_tt, tt, mm)
+        print(i, idx_tt, tt, mm)
         xs.append(i)
         xlabes.append(d)
         idx_tts.append(idx_tt)
