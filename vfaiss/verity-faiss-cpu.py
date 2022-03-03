@@ -115,7 +115,8 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
     return floor(index_total_time), floor(total_time), floor(mem)
 #-----------------------------------------
 
-def plot_meas():
+def plot_idx_meas():
+    """构建索引耗时"""
     import matplotlib.pyplot as plt
     import matplotlib.ticker as mticker
     xs = []
@@ -135,12 +136,71 @@ def plot_meas():
 
     # print(xs)
     # print(idx_tts)
-    plt.figure()          # 定义一个图像窗口
+    plt.figure()
     plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f ms'))
     plt.plot(xs, idx_tts, color="blue", linestyle="-", label="build idx cost")   # 绘制曲线 y1
     # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
     plt.xticks(xs, xlabes)
     plt.show()
 
+
+def plot_query_meas():
+    """检索耗时"""
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mticker
+    xs = []
+    xlabes = []
+    idx_tts = []
+    tts = []
+    mms = []
+
+    for i, nq in enumerate(range(100, 1000, 100)):
+        idx_tt, tt, mm = measure(d = 1000, nb = 1000000, nq = nq, nlist = 100)
+        print(i, idx_tt, tt, mm)
+        xs.append(i)
+        xlabes.append(nq)
+        idx_tts.append(idx_tt)
+        tts.append(tt)
+        mms.append(mm)
+
+    # print(xs)
+    # print(idx_tts)
+    plt.figure()
+    plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f ms'))
+    plt.plot(xs, tt, color="blue", linestyle="-", label="query idx cost")   # 绘制曲线 y1
+    # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
+    plt.xticks(xs, xlabes)
+    plt.show()
+
+def plot_nlist_meas():
+    """构建节点耗时"""
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mticker
+    xs = []
+    xlabes = []
+    idx_tts = []
+    tts = []
+    mms = []
+
+    for i, nlist in enumerate(range(100, 1000, 100)):
+        idx_tt, tt, mm = measure(d = 1000, nb = 1000000, nq = 1000, nlist = nlist)
+        print(i, idx_tt, tt, mm)
+        xs.append(i)
+        xlabes.append(nlist)
+        idx_tts.append(idx_tt)
+        tts.append(tt)
+        mms.append(mm)
+
+    # print(xs)
+    # print(idx_tts)
+    plt.figure()
+    plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f ms'))
+    plt.plot(xs, tt, color="blue", linestyle="-", label="query nlist cost")   # 绘制曲线 y1
+    # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
+    plt.xticks(xs, xlabes)
+    plt.show()
+
 if __name__ == '__main__':
-    plot_meas()
+    # plot_idx_meas()
+    # plot_query_meas()
+    plot_nlist_meas()
