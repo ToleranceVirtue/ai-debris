@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Initially taken from Github's Python gitignore file
+
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -6,6 +11,15 @@ __pycache__/
 # C extensions
 *.so
 
+<<<<<<< HEAD
+=======
+# tests and logs
+tests/fixtures/cached_*_text.txt
+logs/
+lightning_logs/
+lang_code_data/
+
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 # Distribution / packaging
 .Python
 build/
@@ -20,8 +34,11 @@ parts/
 sdist/
 var/
 wheels/
+<<<<<<< HEAD
 pip-wheel-metadata/
 share/python-wheels/
+=======
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 *.egg-info/
 .installed.cfg
 *.egg
@@ -47,7 +64,10 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+<<<<<<< HEAD
 *.py,cover
+=======
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 .hypothesis/
 .pytest_cache/
 
@@ -59,7 +79,10 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
+<<<<<<< HEAD
 db.sqlite3-journal
+=======
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 
 # Flask stuff:
 instance/
@@ -84,6 +107,7 @@ ipython_config.py
 # pyenv
 .python-version
 
+<<<<<<< HEAD
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
 #   However, in case of collaboration, if having platform-specific dependencies or dependencies
@@ -97,6 +121,10 @@ __pypackages__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
+=======
+# celery beat schedule file
+celerybeat-schedule
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
 
 # SageMath parsed files
 *.sage.py
@@ -127,3 +155,53 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
+=======
+
+# vscode
+.vs
+.vscode
+
+# Pycharm
+.idea
+
+# TF code
+tensorflow_code
+
+# Models
+proc_data
+
+# examples
+runs
+/runs_old
+/wandb
+/examples/runs
+/examples/**/*.args
+/examples/rag/sweep
+
+# data
+/data
+serialization_dir
+
+# emacs
+*.*~
+debug.env
+
+# vim
+.*.swp
+
+#ctags
+tags
+
+# pre-commit
+.pre-commit*
+
+# .lock
+*.lock
+
+# DS_Store (MacOS)
+.DS_Store
+
+# model
+*.model
+>>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
