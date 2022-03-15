@@ -149,7 +149,7 @@ encoder.summary()
 encoder.compile(loss=simcse_loss, optimizer=Adam(1e-5))
 train_generator = data_generator(train_token_ids, 64)
 encoder.fit(train_generator.forfit(), steps_per_epoch=len(train_generator), epochs=1)
-encoder.save('test.model')
+encoder.save('/Users/any/Workspace/models/tst.model')
 
 # 语料向量化
 all_vecs = []
