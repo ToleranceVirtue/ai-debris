@@ -142,6 +142,7 @@ def plot_idx_meas():
     # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
     plt.xticks(xs, xlabes)
     plt.show()
+    plt.savefig("idx.png")
 
 
 def plot_query_meas():
@@ -170,7 +171,8 @@ def plot_query_meas():
     plt.plot(xs, tt, color="blue", linestyle="-", label="query idx cost")   # 绘制曲线 y1
     # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
     plt.xticks(xs, xlabes)
-    plt.show()
+    # plt.show()
+    plt.savefig("query.png")
 
 def plot_nlist_meas():
     """构建节点耗时"""
@@ -191,16 +193,18 @@ def plot_nlist_meas():
         tts.append(tt)
         mms.append(mm)
 
-    # print(xs)
-    # print(idx_tts)
+    print(xs)
+    print(idx_tts)
     plt.figure()
     plt.gca().yaxis.set_major_formatter(mticker.FormatStrFormatter('%.1f ms'))
     plt.plot(xs, tt, color="blue", linestyle="-", label="query nlist cost")   # 绘制曲线 y1
     # plt.plot(xs, tts, label="query idx cost")     # 绘制曲线 y2
     plt.xticks(xs, xlabes)
-    plt.show()
+    # plt.show()
+    plt.savefig("nlist.png")
 
 if __name__ == '__main__':
     # plot_idx_meas()
     # plot_query_meas()
     plot_nlist_meas()
+
