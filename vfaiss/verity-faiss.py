@@ -23,14 +23,11 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
     # make reproducible
     # 生成随机数据
     xb = np.random.random((nb, d)).astype('float32')
-    # 然后...?这是干嘛呢 
     # 注：让第一列有点规律性，这样才能比较相似度；
     xb[:, 0] += np.arange(nb) / 1000.
-
     # 随机生成查询数据
     xq = np.random.random((nq, d)).astype('float32')
     xq[:, 0] += np.arange(nq) / 1000.
-
     # print('数据总条数:%d, 维度:%d, 查询个数：%d' % (nb, d, nq) )
     # 保存数据
     #np.save('dat.npy',xb)
@@ -48,9 +45,6 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
     # 查看当前进程使用的内存情况
     process = psutil.Process(os.getpid())
     # print('Used Memory:',process.memory_info().rss / 1024 / 1024,'MB')
-
-
-    
     # print('开始查询(Top %d)...' % k)
     start = time.time()
     D, I = index.search(xq, k)     # actual search
@@ -86,7 +80,6 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
         print('GPU索引失败:', e)
         pass
 
-
     assert not index.is_trained
     index.train(xb)
     assert index.is_trained
@@ -104,7 +97,6 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
 
     D, I = index.search(xq, k)     # actual search
     # print(I[:5])                 # neighbors of the 5 last queries
-
     #index.nprobe = 10              # default nprobe is 1, try a few more
     #D, I = index.search(xq, k)
     #print(I[:5])                  # neighbors of the 5 last queries
