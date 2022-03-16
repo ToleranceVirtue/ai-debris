@@ -83,7 +83,7 @@ def measure(d = 768, nb = 1000000, nq = 1000, nlist = 100, k = 5):
         gpu_index = faiss.index_cpu_to_gpu(res, 0, index)
         index = gpu_index
     except Exception as e :
-        # print('GPU索引失败:', e)
+        print('GPU索引失败:', e)
         pass
 
 
@@ -204,7 +204,9 @@ def plot_nlist_meas():
     plt.savefig("nlist.png")
 
 if __name__ == '__main__':
-    # plot_idx_meas()
+    idx_tt, tt, mm = measure(d = 1000, nb = 1000000, nq = 1000, nlist = 100)
+    print(idx_tt, tt, mm)
+    plot_idx_meas()
     # plot_query_meas()
-    plot_nlist_meas()
+    # plot_nlist_meas()
 
