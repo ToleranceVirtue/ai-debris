@@ -201,12 +201,6 @@ def plot_nlist_meas():
     plt.show()
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     # plot_idx_meas()
     # plot_query_meas()
     plot_nlist_meas()
-=======
-    plot_idx_meas()
-    # plot_query_meas()
-    # plot_nlist_meas()
->>>>>>> 18e3d1cdde1522518a113a3652731c13f1e2ec2b
