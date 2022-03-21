@@ -11,8 +11,6 @@ from scipy.spatial.distance import cosine
 import faiss 
 
 np.random.seed(1234)             # make reproducible
-
-
 # 把字向量转化为句向量，简单相加
 def seg_vector (txt, dict_vector, emb_size=768):
     seg_v = np.zeros(emb_size)
